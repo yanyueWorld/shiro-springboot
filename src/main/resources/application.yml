@@ -1,0 +1,46 @@
+server:
+  port: 80
+  servlet:
+    context-path: /
+#mysql
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shirodemo?serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+#devtools
+  devtools:
+    restart:
+      enabled: true
+#redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  session:
+    store-type: redis
+    timeout: PT30M
+#jackjson
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+#mybatis
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  configuration:
+    cache-enabled: true
+    use-generated-keys: true
+    map-underscore-to-camel-case: true
+    aggressive-lazy-loading: false
+    lazy-loading-enabled: true
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: pageNum=page,pageSize=limit
+logging:
+  level:
+    com.example.dao: debug
