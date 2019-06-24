@@ -2,16 +2,28 @@ package com.example.dao;
 
 import com.example.pojo.Permission;
 
+import java.util.List;
+
 public interface PermissionDao {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Permission record);
+    /**
+     * 新增权限信息.
+     * @param permission 权限信息
+     * @return int 操作行数
+     */
+    int insertSelective(Permission permission);
 
-    int insertSelective(Permission record);
+    /**
+     * 更新权限信息.
+     * @param permission 权限信息
+     * @return int 操作行数
+     */
+    int updateByPrimaryKeySelective(Permission permission);
 
-    Permission selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Permission record);
-
-    int updateByPrimaryKey(Permission record);
+    /**
+     * 根据角色id查询权限信息.
+     * @param roleId 角色id
+     * @return List<Permission> 权限链表
+     */
+    List<Permission> getPermissionsByRoleId(Integer roleId);
 }

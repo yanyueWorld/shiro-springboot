@@ -2,6 +2,8 @@ package com.example.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import lombok.Data;
 
 /**
@@ -69,6 +71,8 @@ public class Role implements Serializable {
      * Nullable:  true
      */
     private Date updateTime;
+
+    private List<Permission> permissions;
 
     private static final long serialVersionUID = 1L;
 }
