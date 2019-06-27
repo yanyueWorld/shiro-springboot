@@ -3,7 +3,12 @@ package com.example.dao;
 import com.example.pojo.Permission;
 
 import java.util.List;
-
+/**
+ * PermissionDao 权限操作Dao层 .
+ *
+ * @author yanyue, 2019/6/24
+ * @version shiro v1.0
+ */
 public interface PermissionDao {
 
     /**

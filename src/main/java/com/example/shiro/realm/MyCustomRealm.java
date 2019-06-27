@@ -19,7 +19,7 @@ import java.util.Set;
  * CustomerRealm 自定义Realm .
  *
  * @author yanyue, 2019/6/21
- * @version shiro v2.0
+ * @version shiro v1.0
  */
 
 @Component
@@ -28,6 +28,12 @@ public class MyCustomRealm extends AuthorizingRealm {
     @Autowired
     private CustomRealmService customRealmService;
 
+    /**
+     * 授权.
+     *
+     * @param principals 账户信息
+     * @return AuthorizationInfo 授权信息
+     */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         String username = (String) principals.getPrimaryPrincipal();
@@ -39,11 +45,17 @@ public class MyCustomRealm extends AuthorizingRealm {
         return info;
     }
 
+    /**
+     * 验证.
+     *
+     * @param token
+     * @return AuthenticationInfo 验证信息
+     * @throws AuthenticationException 认证异常
+     */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         String username = (String) token.getPrincipal();
         String password = customRealmService.getPasswordByUsername(username);
-
         if (password == null) {
             return null;
         }

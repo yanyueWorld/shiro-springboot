@@ -4,6 +4,12 @@ import com.example.pojo.Role;
 
 import java.util.List;
 
+/**
+ * RoleDao 角色操作Dao层.
+ *
+ * @author yanyue, 2019/6/24
+ * @version shiro v1.0
+ */
 public interface RoleDao {
 
     /**

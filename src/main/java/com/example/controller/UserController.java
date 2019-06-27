@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * UserController 用户控制层 .
  *
  * @author yanyue, 2019/6/21
- * @version shiro v2.0
+ * @version shiro v1.0
  */
 @Slf4j
 @RestController
@@ -25,14 +25,14 @@ public class UserController {
     @RequestMapping("/login")
     public String login(@RequestBody  User user){
         Subject subject=SecurityUtils.getSubject();
-        UsernamePasswordToken token=new UsernamePasswordToken(user.getUsername(),user.getPassword());
-        log.info(token.toString());
+        UsernamePasswordToken usernamePasswordToken=new UsernamePasswordToken(user.getUsername(),user.getPassword());
+        log.info(usernamePasswordToken.toString());
         try {
-            subject.login(token);
+            subject.login(usernamePasswordToken);
         } catch (AuthenticationException e) {
             return e.getMessage();
         }
-        return "login success";
+        return "登录成功";
     }
 
     @RequestMapping("/manager/add")

@@ -1,14 +1,16 @@
 package com.example.pojo;
 
 import lombok.Data;
-import org.apache.shiro.crypto.hash.Md5Hash;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 /**
- * Table: user
+ * User 用户实体对象.
+ *
+ * @author yanyue, 2019/6/24
+ * @version shiro v1.0
  */
 @Data
 public class User implements Serializable {
@@ -114,9 +116,12 @@ public class User implements Serializable {
      * Nullable:  true
      */
     private Date lastLoginTime;
+    /**
+     * 角色信息链表
+     * <p>
+     * Nullable:  true
+     */
     private List<Role> roles;
 
-
-    
 
 }

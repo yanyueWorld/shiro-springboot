@@ -2,6 +2,12 @@ package com.example.dao;
 
 import com.example.pojo.User;
 
+/**
+ * UserDao 用户操作Dao层.
+ *
+ * @author yanyue, 2019/6/24
+ * @version shiro v1.0
+ */
 public interface UserDao {
 
     /**
